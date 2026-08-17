@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const subTitle = document.getElementById('sub-title');
     const categoryBadge = document.getElementById('category-badge');
 
-    // Inspiring sentence list
+    // 4가지 영감 문장 후보 리스트
     const sentences = [
         {
             badge: "Cheer Up",
@@ -15,24 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
             sub: "당신의 모든 순간과 빛나는 오늘 하루를 진심으로 응원합니다."
         },
         {
-            badge: "Step by Step",
-            title: "한 걸음씩 나아가면 됩니다",
-            sub: "작은 꾸준함이 모여 마침내 커다란 변화와 성장을 만들어냅니다."
+            badge: "Well Done",
+            title: "오늘도 해냈어요!",
+            sub: "오늘 하루도 최선을 다해 소중한 하루를 채운 당신에게 박수를 보냅니다."
         },
         {
-            badge: "Believe in Yourself",
-            title: "당신의 가능성은 무한합니다",
-            sub: "스스로를 믿고 당신만의 고유한 속도로 당당하게 걸어가세요."
+            badge: "Progress",
+            title: "조금씩 나아지고 있어요.",
+            sub: "작은 발걸음들이 차곡차곡 쌓여 더 큰 내일의 당신을 만들어갑니다."
         },
         {
-            badge: "Warm Day",
-            title: "오늘 하루도 참 소중합니다",
-            sub: "지금까지 걸어온 길을 돌아보며 스스로를 따뜻하게 칭찬해 주세요."
-        },
-        {
-            badge: "Bright Future",
-            title: "가장 빛나는 순간은 바로 지금",
-            sub: "새로운 도전을 주저하지 않는 당신의 용기 있는 걸음이 아름답습니다."
+            badge: "Keep Going",
+            title: "이대로 계속 가봅시다.",
+            sub: "스스로를 믿고 당신만의 멋진 리듬과 방향으로 당당하게 나아가세요."
         }
     ];
 
