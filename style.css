@@ -17,13 +17,6 @@
     --text-secondary: #475569;
     --text-muted: #94a3b8;
     
-    /* Button - Eye-catching Blue */
-    --btn-blue: #2563eb;
-    --btn-blue-hover: #1d4ed8;
-    --btn-blue-active: #1e40af;
-    --btn-shadow: rgba(37, 99, 235, 0.32);
-    --btn-shadow-hover: rgba(37, 99, 235, 0.45);
-    
     /* Badge styling */
     --badge-bg: rgba(255, 255, 255, 0.85);
     --badge-text: #334155;
@@ -183,7 +176,7 @@ body {
     transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Eye-Catching Blue Next Button */
+/* Dynamic Colored Next Button Base */
 .next-button {
     display: inline-flex;
     align-items: center;
@@ -192,32 +185,92 @@ body {
     margin-top: 0.75rem;
     padding: 0.85rem 1.75rem;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: inherit;
     color: #ffffff;
-    background-color: var(--btn-blue);
+    background-color: #2563eb;
     border: none;
     border-radius: 9999px;
     cursor: pointer;
-    box-shadow: 0 4px 14px var(--btn-shadow),
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35),
                 0 2px 6px rgba(37, 99, 235, 0.2),
                 inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     outline: none;
 }
 
 .next-button:hover {
-    background-color: var(--btn-blue-hover);
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 22px var(--btn-shadow-hover),
+}
+
+.next-button:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* 1. Blue Theme (오늘도 힘내세요!) */
+.next-button[data-color="blue"],
+.next-button:not([data-color]) {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35),
+                0 2px 6px rgba(37, 99, 235, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.next-button[data-color="blue"]:hover,
+.next-button:not([data-color]):hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.45),
                 0 3px 8px rgba(37, 99, 235, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
-.next-button:active {
-    background-color: var(--btn-blue-active);
-    transform: translateY(1px) scale(0.98);
-    box-shadow: 0 2px 8px var(--btn-shadow);
+/* 2. Yellow Theme (오늘도 해냈어요!) */
+.next-button[data-color="yellow"] {
+    background-color: #eab308;
+    color: #0f172a;
+    box-shadow: 0 4px 16px rgba(234, 179, 8, 0.45),
+                0 2px 6px rgba(234, 179, 8, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.next-button[data-color="yellow"]:hover {
+    background-color: #ca8a04;
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(202, 138, 4, 0.5),
+                0 3px 8px rgba(202, 138, 4, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* 3. Orange Theme (조금씩 나아지고 있어요.) */
+.next-button[data-color="orange"] {
+    background-color: #ea580c;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4),
+                0 2px 6px rgba(234, 88, 12, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.next-button[data-color="orange"]:hover {
+    background-color: #c2410c;
+    box-shadow: 0 8px 22px rgba(194, 65, 12, 0.5),
+                0 3px 8px rgba(194, 65, 12, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* 4. Green Theme (이대로 계속 가봅시다.) */
+.next-button[data-color="green"] {
+    background-color: #059669;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4),
+                0 2px 6px rgba(5, 150, 105, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.next-button[data-color="green"]:hover {
+    background-color: #047857;
+    box-shadow: 0 8px 22px rgba(4, 120, 87, 0.5),
+                0 3px 8px rgba(4, 120, 87, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .btn-icon {

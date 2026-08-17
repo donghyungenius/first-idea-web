@@ -7,32 +7,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const subTitle = document.getElementById('sub-title');
     const categoryBadge = document.getElementById('category-badge');
 
-    // 4가지 영감 문장 후보 리스트
+    // 4가지 영감 문장 및 각 문장별 고유 버튼 색상 테마
     const sentences = [
         {
             badge: "Cheer Up",
             title: "오늘도 힘내세요!",
-            sub: "당신의 모든 순간과 빛나는 오늘 하루를 진심으로 응원합니다."
+            sub: "당신의 모든 순간과 빛나는 오늘 하루를 진심으로 응원합니다.",
+            color: "blue"
         },
         {
             badge: "Well Done",
             title: "오늘도 해냈어요!",
-            sub: "오늘 하루도 최선을 다해 소중한 하루를 채운 당신에게 박수를 보냅니다."
+            sub: "오늘 하루도 최선을 다해 소중한 하루를 채운 당신에게 박수를 보냅니다.",
+            color: "yellow"
         },
         {
             badge: "Progress",
             title: "조금씩 나아지고 있어요.",
-            sub: "작은 발걸음들이 차곡차곡 쌓여 더 큰 내일의 당신을 만들어갑니다."
+            sub: "작은 발걸음들이 차곡차곡 쌓여 더 큰 내일의 당신을 만들어갑니다.",
+            color: "orange"
         },
         {
             badge: "Keep Going",
             title: "이대로 계속 가봅시다.",
-            sub: "스스로를 믿고 당신만의 멋진 리듬과 방향으로 당당하게 나아가세요."
+            sub: "스스로를 믿고 당신만의 멋진 리듬과 방향으로 당당하게 나아가세요.",
+            color: "green"
         }
     ];
 
     let currentIndex = 0;
     let isTransitioning = false;
+
+    // 초기 버튼 색상 속성 설정 (Blue)
+    if (nextBtn) {
+        nextBtn.setAttribute('data-color', sentences[0].color);
+    }
 
     // Next Sentence Button Handler
     if (nextBtn) {
@@ -43,6 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             currentIndex = (currentIndex + 1) % sentences.length;
             const nextItem = sentences[currentIndex];
+
+            // Update button color immediately with smooth CSS transition
+            nextBtn.setAttribute('data-color', nextItem.color);
 
             // Smooth fade out
             mainTitle.classList.add('content-fade-out');
