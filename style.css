@@ -6,24 +6,25 @@
 }
 
 :root {
-    /* Bright Grey Gradient Theme Palette */
-    --bg-gradient: radial-gradient(circle at 50% 20%, #ffffff 0%, #f4f6f8 45%, #e5e9f0 100%);
-    --card-bg: rgba(255, 255, 255, 0.65);
-    --card-border: rgba(255, 255, 255, 0.85);
+    /* Light Grey Editorial Palette */
+    --bg-gradient: linear-gradient(145deg, #f8fafc 0%, #edf2f7 40%, #e2e8f0 100%);
+    --card-bg: rgba(255, 255, 255, 0.72);
+    --card-border: rgba(255, 255, 255, 0.9);
     --card-border-hover: rgba(255, 255, 255, 1);
     
-    /* Typography Colors */
+    /* Typography */
     --text-primary: #0f172a;
-    --text-secondary: #64748b;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
     
     /* Badge styling */
-    --badge-bg: rgba(255, 255, 255, 0.8);
-    --badge-text: #475569;
+    --badge-bg: rgba(255, 255, 255, 0.85);
+    --badge-text: #334155;
     --badge-border: rgba(226, 232, 240, 0.8);
     
-    /* Ambient Glows */
+    /* Ambient Light Glows */
     --glow-color-1: rgba(255, 255, 255, 0.8);
-    --glow-color-2: rgba(203, 213, 225, 0.5);
+    --glow-color-2: rgba(203, 213, 225, 0.45);
 }
 
 html, body {
@@ -49,24 +50,24 @@ body {
 .ambient-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(120px);
     pointer-events: none;
     z-index: 0;
 }
 
 .glow-1 {
-    width: 600px;
-    height: 600px;
+    width: 540px;
+    height: 540px;
     background: var(--glow-color-1);
-    top: 25%;
-    left: 30%;
+    top: 20%;
+    left: 25%;
     transform: translate(-50%, -50%);
     animation: floatGlow 16s ease-in-out infinite alternate;
 }
 
 .glow-2 {
-    width: 550px;
-    height: 550px;
+    width: 600px;
+    height: 600px;
     background: var(--glow-color-2);
     bottom: 20%;
     right: 25%;
@@ -83,11 +84,11 @@ body {
     }
 }
 
-/* Subtle dot texture */
+/* Subtle pattern texture for editorial quality */
 .noise-overlay {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px);
     background-size: 24px 24px;
     opacity: 0.8;
     pointer-events: none;
@@ -99,28 +100,28 @@ body {
     position: relative;
     z-index: 10;
     padding: 3.75rem 4.25rem;
-    border-radius: 28px;
+    border-radius: 32px;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08),
-                0 0 1px 1px rgba(255, 255, 255, 0.9),
-                inset 0 1px 2px rgba(255, 255, 255, 0.95);
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.08),
+                0 10px 25px -5px rgba(15, 23, 42, 0.04),
+                inset 0 1px 2px rgba(255, 255, 255, 1);
     text-align: center;
     max-width: 92vw;
-    width: 620px;
+    width: 640px;
     transform-style: preserve-3d;
     transition: transform 0.15s ease-out, box-shadow 0.35s ease, border-color 0.35s ease;
     cursor: default;
     user-select: none;
-    animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .center-container:hover {
     border-color: var(--card-border-hover);
-    box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.12),
-                0 0 25px rgba(255, 255, 255, 0.8),
+    box-shadow: 0 35px 75px -15px rgba(15, 23, 42, 0.12),
+                0 15px 35px -5px rgba(15, 23, 42, 0.06),
                 inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
@@ -128,14 +129,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.35rem;
+    gap: 1.25rem;
     transform: translateZ(28px);
 }
 
 /* Category Badge */
 .badge {
     display: inline-block;
-    padding: 0.38rem 1.05rem;
+    padding: 0.4rem 1.1rem;
     border-radius: 9999px;
     font-size: 0.78rem;
     font-weight: 600;
@@ -148,10 +149,10 @@ body {
     box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
 }
 
-/* Main Heading - 40px Crisp Obsidian on Light Theme */
+/* Main Heading - 40px with Crisp Premium Charcoal */
 .main-heading {
     font-size: 40px;
-    font-weight: 750;
+    font-weight: 800;
     line-height: 1.3;
     letter-spacing: -0.03em;
     color: var(--text-primary);
@@ -163,14 +164,14 @@ body {
 
 /* Subtitle */
 .sub-text {
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.65;
     color: var(--text-secondary);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     margin: 0;
     word-break: keep-all;
-    max-width: 460px;
+    max-width: 480px;
 }
 
 /* Footer note */
@@ -180,10 +181,10 @@ body {
     z-index: 10;
     font-size: 0.8rem;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #94a3b8;
-    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
     pointer-events: none;
-    animation: fadeIn 1.2s ease 0.4s forwards;
+    animation: fadeIn 1.5s ease 0.5s forwards;
     opacity: 0;
 }
 
@@ -191,7 +192,7 @@ body {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(24px) scale(0.98);
+        transform: translateY(28px) scale(0.97);
     }
     to {
         opacity: 1;
@@ -217,7 +218,7 @@ body {
     }
     
     .card-inner {
-        gap: 1.1rem;
+        gap: 1rem;
     }
     
     .footer-note {
