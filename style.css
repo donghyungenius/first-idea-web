@@ -15,7 +15,9 @@
     /* Header Theme */
     --header-bg: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     --header-text: #ffffff;
-    --header-shadow: 0 4px 14px rgba(37, 99, 235, 0.18);
+    --header-nav-text: rgba(255, 255, 255, 0.9);
+    --header-nav-hover-bg: rgba(255, 255, 255, 0.12);
+    --header-shadow: 0 4px 18px rgba(37, 99, 235, 0.2);
     
     /* Footer Theme */
     --footer-bg: #e2e8f0;
@@ -57,7 +59,7 @@ html, body {
 }
 
 /* ==========================================================================
-   1. Header Section (파란색 배경 & '나의 첫 서비스')
+   1. Header Section (상단 내비게이션 바 스타일)
    ========================================================================== */
 .app-header {
     width: 100%;
@@ -65,24 +67,76 @@ html, body {
     box-shadow: var(--header-shadow);
     position: relative;
     z-index: 30;
-    padding: 1.1rem 2rem;
+    padding: 1rem 2.5rem;
 }
 
 .header-container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* 좌측 로고, 우측 메뉴 */
+}
+
+.header-logo-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
 }
 
 .header-title {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: -0.025em;
     color: var(--header-text);
     margin: 0;
-    text-align: center;
+    transition: opacity 0.2s ease;
+}
+
+.header-logo-link:hover .header-title {
+    opacity: 0.92;
+}
+
+/* Header Navigation Menu */
+.header-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2rem; /* 메뉴 사이 적당한 간격 확보 */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: inline-flex;
+}
+
+.nav-link {
+    color: var(--header-nav-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background-color: var(--header-nav-hover-bg);
+    transform: translateY(-1px);
+}
+
+.nav-link:active {
+    transform: translateY(0);
 }
 
 /* ==========================================================================
@@ -386,7 +440,16 @@ html, body {
     }
     
     .header-title {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
+    }
+    
+    .nav-list {
+        gap: 1.15rem; /* 모바일에서도 적절한 간격 유지 */
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.6rem;
     }
     
     .center-container {

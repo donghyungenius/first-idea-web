@@ -13,10 +13,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="app-layout">
-    <!-- Header: 파란색 배경 & '나의 첫 서비스' -->
+    <!-- Header: 상단 바 스타일 (좌: '나의 첫 서비스', 우: 소개 / 기능 / 문의 메뉴) -->
     <header class="app-header">
         <div class="header-container">
-            <h1 class="header-title">나의 첫 서비스</h1>
+            <a href="#" class="header-logo-link">
+                <h1 class="header-title">나의 첫 서비스</h1>
+            </a>
+            <nav class="header-nav" aria-label="메인 메뉴">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#about" class="nav-link">소개</a></li>
+                    <li class="nav-item"><a href="#features" class="nav-link">기능</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">문의</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
