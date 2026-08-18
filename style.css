@@ -12,6 +12,16 @@
     --card-border: rgba(255, 255, 255, 0.95);
     --card-border-hover: rgba(255, 255, 255, 1);
     
+    /* Header Theme */
+    --header-bg: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    --header-text: #ffffff;
+    --header-shadow: 0 4px 14px rgba(37, 99, 235, 0.18);
+    
+    /* Footer Theme */
+    --footer-bg: #e2e8f0;
+    --footer-border: #cbd5e1;
+    --footer-text: #475569;
+    
     /* Typography */
     --text-primary: #0f172a;
     --text-secondary: #475569;
@@ -30,7 +40,6 @@
 html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     background: var(--bg-gradient);
     color: var(--text-primary);
     font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -38,12 +47,56 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+/* 3-Section Flex Layout */
+.app-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. Header Section (파란색 배경 & '나의 첫 서비스')
+   ========================================================================== */
+.app-header {
+    width: 100%;
+    background: var(--header-bg);
+    box-shadow: var(--header-shadow);
+    position: relative;
+    z-index: 30;
+    padding: 1.1rem 2rem;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--header-text);
+    margin: 0;
+    text-align: center;
+}
+
+/* ==========================================================================
+   2. Main Content Section (화면 중앙 본문)
+   ========================================================================== */
+.app-main {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 2.5rem 1.5rem;
     perspective: 1200px;
+    z-index: 10;
 }
 
 /* Ambient Background Lights */
@@ -59,7 +112,7 @@ body {
     width: 540px;
     height: 540px;
     background: var(--glow-color-1);
-    top: 20%;
+    top: 25%;
     left: 25%;
     transform: translate(-50%, -50%);
     animation: floatGlow 16s ease-in-out infinite alternate;
@@ -69,7 +122,7 @@ body {
     width: 600px;
     height: 600px;
     background: var(--glow-color-2);
-    bottom: 20%;
+    bottom: 25%;
     right: 25%;
     transform: translate(50%, 50%);
     animation: floatGlow 20s ease-in-out infinite alternate-reverse;
@@ -292,18 +345,26 @@ body {
     transform: translateY(0) !important;
 }
 
-/* Footer note */
-.footer-note {
-    position: absolute;
-    bottom: 2rem;
-    z-index: 10;
-    font-size: 0.8rem;
+/* ==========================================================================
+   3. Footer Section (회색 배경 & '2026 My Services')
+   ========================================================================== */
+.app-footer {
+    width: 100%;
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--footer-border);
+    padding: 1.25rem 2rem;
+    position: relative;
+    z-index: 30;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    font-weight: 600;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--text-muted);
-    letter-spacing: 0.06em;
-    pointer-events: none;
-    animation: fadeIn 1.5s ease 0.5s forwards;
-    opacity: 0;
+    color: var(--footer-text);
+    margin: 0;
+    letter-spacing: 0.04em;
 }
 
 /* Animations */
@@ -318,14 +379,16 @@ body {
     }
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
 /* Responsive adjustments */
 @media (max-width: 640px) {
+    .app-header {
+        padding: 0.9rem 1.25rem;
+    }
+    
+    .header-title {
+        font-size: 1.15rem;
+    }
+    
     .center-container {
         padding: 2.75rem 1.5rem;
         width: 90vw;
@@ -344,7 +407,7 @@ body {
         gap: 1.1rem;
     }
     
-    .footer-note {
-        bottom: 1.25rem;
+    .app-footer {
+        padding: 1rem 1.25rem;
     }
 }

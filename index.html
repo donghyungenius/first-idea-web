@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="오늘도 힘내세요! - 당신의 하루를 응원합니다.">
-    <title>오늘도 힘내세요!</title>
+    <meta name="description" content="나의 첫 서비스 - 매일의 영감과 응원을 전하는 서비스">
+    <title>나의 첫 서비스</title>
     <!-- Pretendard & Plus Jakarta Sans 폰트 -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,27 +12,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="app-layout">
+    <!-- Header: 파란색 배경 & '나의 첫 서비스' -->
+    <header class="app-header">
+        <div class="header-container">
+            <h1 class="header-title">나의 첫 서비스</h1>
+        </div>
+    </header>
+
+    <!-- Ambient background glows -->
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
     <div class="noise-overlay"></div>
 
-    <main class="center-container" id="interactive-card">
-        <div class="card-inner">
-            <span class="badge" id="category-badge">Cheer Up</span>
-            <h1 class="main-heading" id="main-title">오늘도 힘내세요!</h1>
-            <p class="sub-text" id="sub-title">당신의 모든 순간과 빛나는 오늘 하루를 진심으로 응원합니다.</p>
-            <button class="next-button" id="next-btn" type="button" aria-label="다음 문장 보기">
-                <span>다음 문장 보기</span>
-                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </button>
+    <!-- Main Content: 중앙 배치 카드 및 버튼 -->
+    <main class="app-main">
+        <div class="center-container" id="interactive-card">
+            <div class="card-inner">
+                <span class="badge" id="category-badge">Cheer Up</span>
+                <h2 class="main-heading" id="main-title">오늘도 힘내세요!</h2>
+                <p class="sub-text" id="sub-title">당신의 모든 순간과 빛나는 오늘 하루를 진심으로 응원합니다.</p>
+                <button class="next-button" id="next-btn" type="button" aria-label="다음 문장 보기">
+                    <span>다음 문장 보기</span>
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
         </div>
     </main>
 
-    <footer class="footer-note">
-        <span>Click or move cursor to interact</span>
+    <!-- Footer: 회색 배경 & '2026 My Services' -->
+    <footer class="app-footer">
+        <p class="footer-text">2026 My Services</p>
     </footer>
 
     <script src="script.js"></script>
